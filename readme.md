@@ -74,7 +74,6 @@ var $ = require('jquery');
 var THREE = require('three');
 ```
 
-
 ## usage/options
 
 Usage:
@@ -87,6 +86,6 @@ Options:
 - `-b, --bower`: detect using bower.json dependencies
 - `-r, --reset`: reset the `browser` and `browserify-shim` fields before adding new entries (by default, we only add to them or update existing aliases)
 - `-i, --ignore`: a comma-separated list of globs for bower package names to ignore
-- `-o, --only`: a comma-separated list of globals for bower package names; if specified, only these will be shimmed
+- `-o, --only`: a comma-separated list of globs for bower package names; if specified, only these will be shimmed.
 - `-c, --components`: override the path to bower_components
 - `-d, --dir`: override the default base directory
