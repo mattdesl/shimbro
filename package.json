@@ -1,6 +1,6 @@
 {
   "name": "shimbro",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Tiny CLI tool for managing browserify-shim fields",
   "main": "bin/shimbro",
   "scripts": {
