@@ -42,7 +42,7 @@ So a typical usage when setting up your browserify repo might look like this:
 ```
 bower init
 bower install jquery threejs gsap fastclick --save
-shimbro -b
+shimbro -b --ignore gsap,fastclick
 ```
 
 This will walk through the JS files in each bower dependency, and prompt you for the alias and export of that module. Some common libraries (jquery, threejs) will already have the export object declared by default. Here's an example of the interactive session:
