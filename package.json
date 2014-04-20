@@ -11,7 +11,6 @@
     "shimbro": "./bin/shimbro"
   },
   "author": "Matt DesLauriers",
-  "license": "ISC",
   "preferGlobal": true,
   "dependencies": {
     "optimist": "^0.6.1",
@@ -20,5 +19,14 @@
     "chalk": "^0.4.0",
     "minimatch": "^0.2.14",
     "wiredep": "^1.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattdesl/shimbro"
+  },
+  "author": "Matt DesLauriers",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mattdesl/shimbro/issues"
   }
 }

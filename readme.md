@@ -11,7 +11,7 @@ Since it's meant to be used as a command-line tool, it's easiest to install and 
 
 Nobody wants to edit JSON manually! Run `shimbro` from your module directory to add browserify-shim fields automatically.
 
-## simplest use
+## simple usage
 
 The simplest use just adds the shims using the "global" feature.
 
