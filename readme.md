@@ -1,6 +1,6 @@
 ## shimbro
 
-A tiny browserify-shim helper tool.
+A tiny [browserify-shim](https://github.com/thlorenz/browserify-shim) helper tool.
 
 ## install
 
@@ -13,7 +13,7 @@ Nobody wants to edit JSON manually! Run `shimbro` from your module directory to 
 
 ## simple usage
 
-The simplest use just adds the shims using the "global" feature.
+The simplest use will shim a space-separated list of modules using the "global" feature.
 
 ```shimbro three:THREE jquery:$ TweenLite```
 
