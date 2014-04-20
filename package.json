@@ -2,7 +2,7 @@
   "name": "shimbro",
   "version": "0.0.1",
   "description": "Tiny CLI tool for managing browserify-shim fields",
-  "main": "bin/index.js",
+  "main": "bin/shimbro",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

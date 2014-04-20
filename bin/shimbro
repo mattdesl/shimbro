@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var optimist = require('optimist')
 		.usage('Adds shims to browserify-shim field.\nUsage: $0 [modules]')
 		.alias('h', 'help')
