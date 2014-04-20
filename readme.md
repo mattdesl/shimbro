@@ -5,6 +5,7 @@ A tiny [browserify-shim](https://github.com/thlorenz/browserify-shim) helper too
 ## install
 
 Since it's meant to be used as a command-line tool, it's easiest to install and use it globally:
+
 ```npm install shimbro -g```
 
 ## purpose
