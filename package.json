@@ -1,0 +1,19 @@
+{
+  "name": "shimbro",
+  "version": "0.0.0",
+  "description": "Tiny CLI tool for managing browserify-shim fields",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt DesLauriers",
+  "license": "ISC",
+  "dependencies": {
+    "optimist": "^0.6.1",
+    "underscore": "^1.6.0",
+    "inquirer": "^0.4.1",
+    "chalk": "^0.4.0",
+    "minimatch": "^0.2.14",
+    "wiredep": "^1.4.4"
+  }
+}
