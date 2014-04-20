@@ -47,7 +47,7 @@ shimbro -b --ignore gsap,fastclick
 
 This will walk through the JS files in each bower dependency, and prompt you for the alias and export of that module. Some common libraries (jquery, threejs) will already have the export object declared by default. Here's an example of the interactive session:
 
-![screen](http://i.imgur.com/YHe5tdP.png)
+![screen](http://i.imgur.com/XbkS17T.png)
 
 In the above example, jQuery will be shimmed into the browserify bundle as per usual. However, since I specified `global:` for the THREE.js export, it will not be included in the bundle, but instead will be assumed to already be attached to the window object. This is useful to keep build times fast, and also make use of the CDN for THREE.js. The resulting package.json modifications:
 
