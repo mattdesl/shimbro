@@ -57,8 +57,8 @@ function run(options, stack, shims, callback) {
 			name: 'exports',
 			message: 'What does this module export to window?',
 			default: function(answers) {
-				if (answers.alias && answers.alias in common)
-					return common[answers.alias];
+				if (pkgName in common)
+					return common[pkgName];
 			}
 		}
 	];
@@ -87,6 +87,7 @@ function run(options, stack, shims, callback) {
 			inquirer.prompt(otherQ, function(answers) {
 				var shim = {
 					alias: answers.alias,
+					originalAlias: pkgName,
 					exports: answers.exports,
 					dependencies: extractDependencies(answers),
 					file: file,

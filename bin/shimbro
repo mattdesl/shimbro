@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var optimist = require('optimist')
-		.usage('Adds shims to browserify-shim field.\nUsage: $0 [modules]')
+		.usage('Adds shims to browserify-shim field.\nUsage: $0 [options] [globals]')
 		.alias('h', 'help')
 		.describe('h', 'show help message')
 		.alias('b', 'bower')
@@ -18,7 +18,9 @@ var optimist = require('optimist')
 		.default('c', 'bower_components')
 		.alias('d', 'dir')
 		.default('d', '.')
-		.describe('d', 'base directory');
+		.describe('d', 'base directory')
+		.alias('r', 'reset')
+		.describe('r', 'reset browser and browserify-shim fields before running');
 
 var argv = optimist.argv;
 
@@ -93,19 +95,26 @@ function addAlias(pkg, alias, file) {
 	file = path.normalize( path.join( argv.d, file ) );
 
 
-	//TODO: this is hack. browserify-shim should work without a leading period
+	//TODO: this is kinda hacky..
 	if (file.indexOf('.') !== 0)
 		file = "."+path.sep+file;
 
 	pkg.browser[alias] = file;
 }
 
+function removeOriginal(pkg, oldKey) {
+	removeAlias(pkg, oldKey)
+}
+
 function addShims(pkg, args) {
 	var FIELD = 'browserify-shim';
 
 	//make the field if it doesn't exist
-	if (!pkg[FIELD])
+	if (!pkg[FIELD] || argv.reset)
 		pkg[FIELD] = {};
+
+	if (argv.reset)
+		pkg.browser = {};
 
 	var shims = pkg[FIELD];
 
@@ -122,11 +131,21 @@ function addShims(pkg, args) {
 			var exports = arr[1];
 			
 			shims[key] = "global:" + (exports||key);
+			removeAlias(pkg, key);
 		} 
 		//otherwise assume its a Shim object from detect.js
 		else {
 			var shim = args[i];
 			var key = shim.alias;
+
+			//remove the old aliased shim...
+			//this won't remove it if the user keeps giving new aliases...
+			if (shim.originalAlias != shim.alias) {
+				var oldKey = shim.originalAlias;
+				removeAlias(pkg, oldKey);
+				if (pkg[FIELD][oldKey])
+					delete pkg[FIELD][oldKey];
+			}
 
 			if (shim.file)
 				addAlias(pkg, shim.alias, shim.file);
