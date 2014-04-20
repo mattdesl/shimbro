@@ -9,7 +9,7 @@
   },
   "bin": {
     "shimbro": "./bin/shimbro"
-  }
+  },
   "author": "Matt DesLauriers",
   "license": "ISC",
   "preferGlobal": true,
