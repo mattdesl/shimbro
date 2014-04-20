@@ -89,3 +89,24 @@ Options:
 - `-o, --only`: a comma-separated list of globs for bower package names; if specified, only these will be shimmed.
 - `-c, --components`: override the path to bower_components
 - `-d, --dir`: override the default base directory
+
+## advanced overrides
+
+This project uses `wiredep` to determine the bower dependencies, so it will fail on bower packages that don't specify a `main` field (or use incorrect formatting, like a wildcard). You may see an error about a file "not being injected" -- this means that `wiredep` couldn't find the main JS file for that package.
+
+To remedy this, you can specify [overrides](https://github.com/taptapship/wiredep#bower-overrides) in your bower.json. This is also useful for shimming particular module(s) for large bower packages.
+
+Here's an example of an override for [GSAP](https://github.com/greensock/GreenSock-JS). This lets us shim only TweenLite and TimelineLite, rather than the default TweenMax. 
+
+```json
+  "overrides": {
+    "gsap": {
+      "main": [
+        "./src/uncompressed/TweenLite.js",
+        "./src/uncompressed/TimelineLite.js"
+      ]
+    }
+  }
+```
+
+You can then use shimbro to shim in both of these modules under different aliases.
