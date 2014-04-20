@@ -4,10 +4,15 @@
   "description": "Tiny CLI tool for managing browserify-shim fields",
   "main": "bin/shimbro",
   "scripts": {
+    "start": "node ./bin/shimbro",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "shimbro": "./bin/shimbro"
+  }
   "author": "Matt DesLauriers",
   "license": "ISC",
+  "preferGlobal": true,
   "dependencies": {
     "optimist": "^0.6.1",
     "underscore": "^1.6.0",
